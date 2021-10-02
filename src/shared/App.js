@@ -15,7 +15,7 @@ import PostDetail from '../pages/PostDetail';
 import { Grid, Button } from '../elements/index'
 import Permit from '../shared/Permit'
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { actionCreators as userActions } from '../redux/modules/user';
 import { apiKey } from './firebase';
 
@@ -23,6 +23,7 @@ function App() {
   const dispatch = useDispatch();
   const _session_key = `firebase:authUser:${apiKey}:[DEFAULT]`
   const is_session = sessionStorage.getItem(_session_key) ? true : false;
+  const is_login = useSelector(state => state.user.is_login);
 
   React.useEffect(() => {
     if (is_session) {
@@ -32,7 +33,7 @@ function App() {
   return (
     <React.Fragment>
       <Grid>
-      <Header/>
+        <Header is_session={is_session} is_login={is_login}/>
       <ConnectedRouter history={history}>
         <Route path="/" exact component={PostList}/>
         <Route path="/login" exact component={Login}/>
@@ -42,7 +43,7 @@ function App() {
       </ConnectedRouter>
       </Grid>
       <Permit>
-        <Button is_float text="+"></Button>
+        <Button is_float text="+" _onClick={() => {history.push('/write')}}></Button>
       </Permit>
     </React.Fragment>
   );

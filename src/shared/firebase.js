@@ -1,5 +1,7 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
+import 'firebase/compat/storage';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -17,6 +19,8 @@ firebase.initializeApp(firebaseConfig);
 
 const auth = firebase.auth();
 const apiKey = firebaseConfig.apiKey;
+const firestore = firebase.firestore();
+const storage = firebase.storage();
 
-export { auth, apiKey };
+export { auth, apiKey , firestore, storage};
 
