@@ -11,6 +11,7 @@ import Login from '../pages/Login';
 import Signup from '../pages/Signup';
 import PostWirte from '../pages/PostWrite';
 import PostDetail from '../pages/PostDetail';
+import Search from './Search';
 
 import { Grid, Button } from '../elements/index'
 import Permit from '../shared/Permit'
@@ -40,6 +41,7 @@ function App() {
         <Route path="/signup" exact component={Signup}/>
         <Route path="/write" exact component={PostWirte}/>
         <Route path="/post/:id" exact component={PostDetail}/>
+        <Route path="/search" exact component={Search}/>
       </ConnectedRouter>
       </Grid>
       <Permit>
