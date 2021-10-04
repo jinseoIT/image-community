@@ -9,9 +9,9 @@ const Search = () => {
     console.log('debounce :::', e.target.value);
   }, 1000);
 
-  const throttle = _.throttle((e) => {
-    console.log('throttle ::: ', e.target.value);
-  }, 1000)
+  // const throttle = _.throttle((e) => {
+  //   console.log('throttle ::: ', e.target.value);
+  // }, 1000)
 
   const keypress = React.useCallback(debounce, [text]);
 

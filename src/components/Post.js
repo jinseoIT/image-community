@@ -1,5 +1,6 @@
 import React from 'react';
-import { Grid, Image, Text} from '../elements/index';
+import { Grid, Image, Text, Button } from '../elements/index';
+import { history } from '../redux/configureStore';
 
 const Post = (props) => {
   
@@ -13,6 +14,9 @@ const Post = (props) => {
         </Grid>
 
         <Grid padding="16px">
+          {props.is_me && <Button width="auto" padding="4px" _onClick={() => {
+            history.push(`/write/${props.id}`);
+          }}>수정</Button>}
           <Text bold>{props.contents}</Text>
         </Grid>
 
@@ -37,6 +41,7 @@ Post.defaultProps = {
   contents: "노제입니다.",
   comment_cnt: 10,
   insert_dt: "2021-02-27 10:00:00",
+  is_me: false,
 };
 
 export default Post;

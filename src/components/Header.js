@@ -4,6 +4,7 @@ import { Grid, Text, Button } from '../elements/index'
 import {useDispatch } from 'react-redux';
 import { actionCreators as userActions } from '../redux/modules/user';
 import { history } from '../redux/configureStore';
+import NotiBadge from './NotiBadge';
 //import Permit from '../shared/Permit'
 
 
@@ -11,7 +12,7 @@ const Header = (props) => {
   const dispatch = useDispatch();
   const is_session = props.is_session;
   const is_login = props.is_login;
-
+  
   return (
     <>
     { is_session && is_login ?
@@ -22,7 +23,9 @@ const Header = (props) => {
       
         <Grid is_flex>
           <Button text="내정보"></Button>
-          <Button text="알림"></Button>
+          <NotiBadge _onClick={() => {
+              history.push('/noti');
+          }}></NotiBadge>
           <Button text="로그아웃" _onClick={() => {
             dispatch(userActions.logoutFB({}));
           }}></Button>

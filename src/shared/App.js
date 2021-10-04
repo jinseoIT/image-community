@@ -12,6 +12,7 @@ import Signup from '../pages/Signup';
 import PostWirte from '../pages/PostWrite';
 import PostDetail from '../pages/PostDetail';
 import Search from './Search';
+import Notification from '../pages/Notification';
 
 import { Grid, Button } from '../elements/index'
 import Permit from '../shared/Permit'
@@ -40,8 +41,10 @@ function App() {
         <Route path="/login" exact component={Login}/>
         <Route path="/signup" exact component={Signup}/>
         <Route path="/write" exact component={PostWirte}/>
+        <Route path="/write/:id" exact component={PostWirte}/>
         <Route path="/post/:id" exact component={PostDetail}/>
-        <Route path="/search" exact component={Search}/>
+        <Route path="/search" exact component={Search} />
+        <Route path="/noti" exact component={Notification}/>
       </ConnectedRouter>
       </Grid>
       <Permit>
