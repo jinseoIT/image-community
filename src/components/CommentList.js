@@ -37,7 +37,7 @@ CommentList.defaultProps = {
 
 const CommentItem = (props) => {
 
-  const { user_profile, user_name, user_id, post_id, contents,insert_dt } = props;
+  const {user_name, contents,insert_dt } = props;
   return (
     <>
       <Grid is_flex>

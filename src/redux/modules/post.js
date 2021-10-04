@@ -52,12 +52,10 @@ const addPostFB = (contents="") => {
 
     const _image = getState().image.preview;
     
-    console.log(_image);
 
     const _upload = storage.ref(`images/${user_info.user_id}_${new Date().getTime()}`).putString(_image, 'data_url')
     _upload.then(snapshot => {
       snapshot.ref.getDownloadURL().then(url => {
-        console.log(url);
         return url;
       }).then(url => {
         postDB

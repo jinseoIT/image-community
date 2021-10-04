@@ -17,9 +17,9 @@ const Header = (props) => {
     <>
     { is_session && is_login ?
       <Grid is_flex padding="4px 16px">
-        <Grid>
-          <Text margin="0px" size="24px" bold>Image-Community</Text>
-        </Grid>
+          <Grid _onClick={() => { history.push('/') }}>
+            <Text margin="0px" size="24px" bold>Image-Community</Text>
+          </Grid>
       
         <Grid is_flex>
           <Button text="내정보"></Button>
